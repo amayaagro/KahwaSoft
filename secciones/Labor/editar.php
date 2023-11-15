@@ -12,6 +12,7 @@
 
         $nombrelabor = $labor['labor'];
         $descripcion = $labor['Descripcion'];
+        $estado = $labor['Estado'];
     }
 
     if($_POST)
@@ -21,9 +22,9 @@
         $descripcion = (isset($_POST['descripcion'])?$_POST['descripcion']:"");
         
         $sentencia = $conexion->prepare("UPDATE `labores` SET 
-        `labor` = :labor,
-        Descripcion = :descripcion 
-        WHERE Id = :id");
+                                        `labor` = :labor,
+                                        Descripcion = :descripcion 
+                                        WHERE Id = :id");
         $sentencia->bindParam(":id",$txtId);
         $sentencia->bindParam(":labor",$labor);
         $sentencia->bindParam(":descripcion",$descripcion);        

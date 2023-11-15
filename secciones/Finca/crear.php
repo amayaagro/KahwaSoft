@@ -54,7 +54,7 @@
 <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Registrar Finca</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Registrar Finca</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">
@@ -71,7 +71,7 @@
                 <div class="mb-3">
                     <label for="municipio" class="form-label">Municipio</label>
                     <input type="text"
-                    class="form-control" name="municipio" id="municipio"value="" required  aria-describedby="helpId" placeholder="Ingrese el municipio">
+                    class="form-control" name="municipio" id="municipio" value="" required  aria-describedby="helpId" placeholder="Ingrese el municipio">
                 </div>
                 <div class="mb-3">
                     <label for="departamento" class="form-label">Departamento</label>

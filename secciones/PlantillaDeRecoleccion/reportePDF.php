@@ -124,15 +124,13 @@ $recoleccion = $sentecia->fetchall(PDO::FETCH_ASSOC);
 $html=ob_get_clean();
 //echo $html; 
 
-require_once '../../Library/dompdf/autoload.inc.php';
+include '../../Library/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 $options = $dompdf->getOptions();
 $options->set(array('isRemoteEnabled' => true));
 $dompdf->SetOptions($options);
-$dompdf->set_option('Arial', 'Courier');
 $dompdf->loadHTML($html);
-//$dompdf->setPaper('letter');
 $dompdf->setPaper('A4','landscape');
 $dompdf->render();
 $dompdf->stream("Recoleccion.pdf", array("Attachment" => true)); 

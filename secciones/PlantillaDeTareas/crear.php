@@ -68,7 +68,7 @@
                 <div class="mb-3">
                     <label for="fechadeasignacion" class="form-label">Fecha de Asignación</label>
                     <input type="date"
-                    class="form-control" name="fechadeasignacion" id="fechadeasignacion" aria-describedby="helpId" placeholder="">
+                    class="form-control" name="fechadeasignacion" id="fechadeasignacion" value="" required aria-describedby="helpId" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="encargado" class="form-label">Encargado</label>

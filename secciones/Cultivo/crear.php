@@ -6,9 +6,12 @@
     {
         $cultivo = (isset($_POST['nombredelcultivo'])?$_POST['nombredelcultivo']:"");
         $descripcion = (isset($_POST['descripcion'])?$_POST['descripcion']:"");
-        $sentencia = $conexion->prepare("INSERT INTO `cultivo` (`Id`, `Cultivo`, `Descripcion` ) VALUES (NULL, :Cultivo, :Descripcion)");
+        $estado = (isset($_POST['estado'])?$_POST['estado']:"1");
+        $sentencia = $conexion->prepare("INSERT INTO `cultivo` (`Id`, `Cultivo`, `Descripcion`, `Estado`) VALUES 
+        (NULL, :Cultivo, :Descripcion, :estado)");
         $sentencia->bindParam(":Cultivo",$cultivo);
         $sentencia->bindParam(":Descripcion",$descripcion);
+        $sentencia->bindParam(":estado",$estado);
         $sentencia->execute();
         $mensaje="Registro creado";
         header("Location:index.php?mensaje=".$mensaje);
@@ -33,7 +36,7 @@
     <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Registrar Cultivo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Registrar Cultivo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

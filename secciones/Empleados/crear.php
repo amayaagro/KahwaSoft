@@ -12,7 +12,7 @@
         $arl = (isset($_POST['arl'])?$_POST['arl']:"");
         $estado = (isset($_POST['estado'])?$_POST['estado']:"1");
         $sentencia = $conexion->prepare("INSERT INTO `trabajadores` (`Id`, `Documento`, `Nombre`, `Telefono`, `FechaDeNacimiento`, `Eps`, `Arl`, `Estado`) VALUES 
-        (NULL, :documento, :nombrecompleto, :telefono, :fechadenacimiento, :eps, :arl, :estado);");
+        (NULL, :documento, :nombrecompleto, :telefono, :fechadenacimiento, :eps, :arl, :estado)");
         $sentencia->bindParam(":documento",$documento);
         $sentencia->bindParam(":nombrecompleto",$nombrecompleto);
         $sentencia->bindParam(":telefono",$telefono);

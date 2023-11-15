@@ -42,7 +42,7 @@
     function borrar(id)
     {         
         Swal.fire({
-        title: '¿Desea borrar el registro o cambiar el estado?',
+        title: '¿Desea cambiar el estado del registro?',
         showCancelButton: true,
         confirmButtonText: 'Si'
         }).then((result) => {

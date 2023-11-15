@@ -35,13 +35,13 @@ body {
     background: rgba(0,0,255,.1);
     border: none;
     outline: none;
-    border-bottom: 2px solid #023887;
+    border-bottom: 2px solid  #000000;
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
     border-radius: 2px;
     font-size: 14px;
-    color: #fff;
+    color: #030303;
     font-family: 'Roboto', sans-serif;
 }
 
