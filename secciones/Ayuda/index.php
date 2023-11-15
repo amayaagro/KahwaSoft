@@ -65,14 +65,7 @@
             <p></p>
             <embed src="../Ayuda/Usuario/manual_usuario.pdf" type="application/pdf" width="100%" height="600px" />
             <p></p>
-            <p></p>
-            
-            <h1>Manual Técnico</h1>
-            <hr>
-            <p></p>
-            <embed src="../Ayuda/Tecnico/manual_tecnico.pdf" type="application/pdf" width="100%" height="600px" />
-            <p></p>
-            
+            <p></p>           
         </article>
 
         <!-- Manuales por Temas -->
@@ -84,6 +77,7 @@
             <aside>
                 <h2>Manual del Usuario</h2>
                 <hr>
+                <a href="../Ayuda/Usuario/manual_usuario.pdf"><button>leer más</button></a>
             </aside>
 
             <aside>
@@ -111,44 +105,6 @@
             <aside>
             </aside>
             <aside>
-            </aside>
-
-            <aside>
-                <h1>Manual Técnico</h1>
-                <hr>
-            </aside>
-
-            <aside>
-
-                <img src="" alt="">
-                <h3>Objetivo Manual Técnico</h3>
-                <hr>
-                <p></p>
-                <a href="../Ayuda/Tecnico/objetivo_manual.pdf"><button>leer más</button></a>
-            </aside>
-
-            <aside>
-                <img src="" alt="">
-                <h3>Diseño Técnico</h3>
-                <hr>
-                <p></p>
-                <a href="../Ayuda/Tecnico/diseño.pdf"><button>leer más</button></a>
-            </aside>
-
-            <aside>
-                <img src="" alt="">
-                <h3>Componentes Sistema</h3>
-                <hr>
-                <p></p>
-                <a href="../Ayuda/Tecnico/componentes_sistema.pdf"><button>leer más</button></a>
-            </aside>
-            
-            <aside>
-                <img src=""alt="">
-                <h3>Resolución Problemas</h3>
-                <hr>
-                <p></p>
-                <a href="../Ayuda/Tecnico/problemas_tecnico.pdf"><button>leer más</button></a>
             </aside>
 
         </div>

@@ -47,7 +47,7 @@
         crossorigin="anonymous">
     </script> 
 
-||||<!-- Herramienta Accesibilidad -->
+    <!-- Herramienta Accesibilidad -->
     <script>
         (function(d){
         var s = d.createElement("script");
@@ -93,7 +93,6 @@
                 <button type="submit" id="guardar" title="Agregar" class="btn">Agregar</button>
                 &nbsp&nbsp
                 <a name="" id="cancelar" class="btn" title="Cancelar" href="index.php" role="button">Cancelar</a>
-                <a href="login.php" id="regresar" title="Regresar" class="mt-3 mb-4" title="Regresar" style="margin: 10px">Regresar</a>
             </form>
             </div>
         </div>

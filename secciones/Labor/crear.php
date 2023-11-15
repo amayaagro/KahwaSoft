@@ -5,9 +5,12 @@
     {
         $labor = (isset($_POST['labor'])?$_POST['labor']:"");
         $descripcion = (isset($_POST['descripcion'])?$_POST['descripcion']:"");
-        $sentencia = $conexion->prepare("INSERT INTO `labores` (`Id`, `labor`) VALUES (NULL, :labor)");
+        $estado = (isset($_POST['estado'])?$_POST['estado']:"1");
+        $sentencia = $conexion->prepare("INSERT INTO `labores` (`Id`, `labor`, `Descripcion`, `Estado`) VALUES 
+        (NULL, :labor, :Descripcion, :estado)");
         $sentencia->bindParam(":labor",$labor);
         $sentencia->bindParam(":Descripcion",$descripcion);
+        $sentencia->bindParam(":estado",$estado);
         $sentencia->execute();
         $mensaje="Registro creado";
         header("Location:index.php?mensaje=".$mensaje);
@@ -32,7 +35,7 @@
     <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Registrar Labor</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Registrar Labor</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

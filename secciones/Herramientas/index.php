@@ -57,7 +57,7 @@
     <div class="card">
         <div class="content">
             <div class="title">
-                <h3 id="Titulo"><strong>Herramientas</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+                <h2 id="Titulo"><strong>Herramientas</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
                 <a name="" id="btncrear" class="btn" title="Agregar" href="crear.php" role="button">Agregar</a>

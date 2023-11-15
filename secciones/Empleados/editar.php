@@ -11,13 +11,13 @@
         $sentencia->execute();
         $trabajadores = $sentencia->fetch(PDO::FETCH_LAZY);
 
-        $nombre = $trabajadores['Nombre'];
         $documento = $trabajadores['Documento'];
+        $nombre = $trabajadores['Nombre'];
+        $telefono = $trabajadores['Telefono'];
         $fechadenacimiento = $trabajadores['FechaDeNacimiento'];
         $eps = $trabajadores['Eps'];
         $arl = $trabajadores['Arl'];
         $estado = $trabajadores['Estado'];
-        $telefono = $trabajadores['Telefono'];
     }
 
     if($_POST)
@@ -31,20 +31,20 @@
         $arl = (isset($_POST['arl'])?$_POST['arl']:"");
 
         $sentencia = $conexion->prepare("UPDATE trabajadores SET
-                            Documento = :Documento,
-                            Nombre = :Nombre,
-                            Telefono = :Telefono,
-                            FechaDeNacimiento = :Fechadenacimiento,
-                            Arl = :Arl,
-                            Eps = :Eps
-                            WHERE Id = :id");
+                                        Documento = :Documento,
+                                        Nombre = :Nombre,
+                                        Telefono = :Telefono,
+                                        FechaDeNacimiento = :Fechadenacimiento,
+                                        Arl = :Arl,
+                                        Eps = :Eps
+                                        WHERE Id = :id");
+        $sentencia->bindParam(":id",$txtId);
         $sentencia->bindParam(":Documento",$documento);
         $sentencia->bindParam(":Nombre",$nombre);
         $sentencia->bindParam(":Telefono",$telefono);
         $sentencia->bindParam(":Fechadenacimiento",$fechadenacimiento);
         $sentencia->bindParam(":Eps",$eps);
         $sentencia->bindParam(":Arl",$arl);
-        $sentencia->bindParam(":id",$txtId);
         $sentencia->execute();
         $mensaje = "Registro actualizado";
         header("Location:index.php?mensaje=".$mensaje);
@@ -67,7 +67,7 @@
     <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Modificar Datos Trabajador</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Modificar Datos Trabajador</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

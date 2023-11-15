@@ -17,6 +17,7 @@
         $cantidadenbodega = $insumo['CantidadEnBodega'];
         $fechadecompra = $insumo['FechaDeCompra'];
         $fechadevencimiento = $insumo['FechaDeVencimiento'];
+        $estado = $insumo['Estado'];
     }
 
     if($_POST)
@@ -31,15 +32,15 @@
         $fechadevencimiento = (isset($_POST['fechadevencimiento'])?$_POST['fechadevencimiento']:"");
 
         $sentencia = $conexion->prepare("UPDATE inventario SET 
-        FechaInventario = :fechadeinventario,
-        NombreInsumo = :nombreinsumo,
-        IngredienteActivo = :ingredienteactivo,
-        Unidad = :unidad,
-        CantidadEnBodega = :cantidadenbodega,
-        FechaDeCompra = :fechadecompra,
-        FechaDeVencimiento = :fechadevencimiento
-        WHERE Id = :id");
-
+                                        FechaInventario = :fechadeinventario,
+                                        NombreInsumo = :nombreinsumo,
+                                        IngredienteActivo = :ingredienteactivo,
+                                        Unidad = :unidad,
+                                        CantidadEnBodega = :cantidadenbodega,
+                                        FechaDeCompra = :fechadecompra,
+                                        FechaDeVencimiento = :fechadevencimiento
+                                        WHERE Id = :id");
+        $sentencia->bindParam(":id",$txtId);
         $sentencia->bindParam(":fechadeinventario",$fechadeinventario);
         $sentencia->bindParam(":nombreinsumo",$nombreinsumo);
         $sentencia->bindParam(":ingredienteactivo",$ingredienteactivo);
@@ -47,7 +48,6 @@
         $sentencia->bindParam(":cantidadenbodega",$cantidadenbodega);
         $sentencia->bindParam(":fechadecompra",$fechadecompra);
         $sentencia->bindParam(":fechadevencimiento",$fechadevencimiento);
-        $sentencia->bindParam(":id",$txtId);
         $sentencia->execute();
         $mensaje = "Registro actualizado";
         header("Location:index.php?mensaje=".$mensaje);
@@ -72,7 +72,7 @@
 <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Modificar Insumo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Modificar Insumo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

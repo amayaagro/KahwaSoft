@@ -52,7 +52,7 @@
 <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Registrar Recolección</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h id="Titulo"><strong>Registrar Recolección</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

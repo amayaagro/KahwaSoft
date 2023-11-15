@@ -9,13 +9,32 @@
     if(isset($_GET['txtID']))
     {
         $txtId = (isset($_GET['txtID'])?$_GET['txtID']:"");
-        $sentencia = $conexion->prepare("DELETE FROM `inventario` WHERE Id = :id");
+
+        $sentencia = $conexion->prepare("SELECT * FROM inventario WHERE Id = :id");
         $sentencia->bindParam(":id",$txtId);
         $sentencia->execute();
-        $mensaje = "Registro Eliminado";
+        $insumo = $sentencia->fetch(PDO::FETCH_LAZY);
+
+        if($insumo['Estado'] == 1)
+        {
+            $estado = 0;
+            $sentencia = $conexion->prepare("UPDATE inventario SET Estado = :Estado Where Id = :Id");
+            $sentencia->bindParam(":Estado",$estado);
+            $sentencia->bindParam(":Id",$txtId);
+            $sentencia->execute();
+        }
+        else
+        {
+            $estado = 1;
+            $sentencia = $conexion->prepare("UPDATE inventario SET Estado = :Estado Where Id = :Id");
+            $sentencia->bindParam(":Estado",$estado);
+            $sentencia->bindParam(":Id",$txtId);
+            $sentencia->execute();
+        }
+
+        $mensaje = "Estado Actualizado";
         header("Location:index.php?mensaje=".$mensaje);
     }
-
 ?>
 
 <!-- Header -->
@@ -36,7 +55,7 @@
     <div class="card">
         <div class="content">
             <div class="title">
-                <h3 id="Titulo"><strong>Insumos</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+                <h2 id="Titulo"><strong>Insumos</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
                 <a name="" id="btncrear" class="btn" title="Agregar" href="crear.php" role="button">Agregar</a>
@@ -51,6 +70,7 @@
                                 <th scope="col">Cantidad</th>
                                 <th scope="col">Fecha de Compra</th>
                                 <th scope="col">Fecha de Vencimiento</th>
+                                <th scope="col">Estado</th>
                                 <th scope="col">Acciones</th>
                             </tr>
                         </thead>
@@ -66,8 +86,14 @@
                                     <td><?php echo $insumos['CantidadEnBodega']; ?></td>
                                     <td><?php echo $insumos['FechaDeCompra'];?></td>
                                     <td><?php echo $insumos['FechaDeVencimiento'];?></td>
+                                    <?php if($insumos['Estado']==1){ ?>
+                                        <td>Activo</td>
+                                    <?php }?>
+                                    <?php if($insumos['Estado']==0){ ?>
+                                        <td>Inactivo</td>
+                                    <?php }?>
                                     <td> <a id="editar" class="btn" title="Editar" href="editar.php?txtID=<?php echo $insumos['Id']; ?>" role="button">Editar</a>
-                                    <a id="borrar" class="btn" title="Borrar" href="javascript:borrar(<?php echo $insumos['Id']; ?>);" role="button">Borrar</a>
+                                    <a id="borrar" class="btn" title="Borrar" href="javascript:borrar(<?php echo $insumos['Id']; ?>);" role="button">Estado</a>
                                     </td>
                                 </tr>
                             <?php }?>

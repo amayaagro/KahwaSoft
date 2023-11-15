@@ -33,7 +33,7 @@ $sentencia = $conexion->prepare("UPDATE usuarios SET Codigo = :Codigo, Fecha_Cod
             $sentencia->bindParam(":correo",$_REQUEST['correo']);
             $sentencia->execute();
 
-    $from = "kahwasoft@gmail.com";
+    $from = "amaya.agrot@gmail.com";
     $to = $_REQUEST['correo'];
     $subject = "Restablecer Contraseña - KahwaSOFT";
     $message = "Se ha solicitado un cambio de contraseña, codigo asignado: ".$codigo;

@@ -96,7 +96,7 @@ $dompdf = new Dompdf();
 $options = $dompdf->getOptions();
 $options->set(array('isRemoteEnabled' => true));
 $dompdf->SetOptions($options);
-$dompdf->set_option('Arial', 'Courier','20');
+$dompdf->set_option('Arial', 'Courier');
 $dompdf->loadHTML($html);
 //$dompdf->setPaper('letter');
 $dompdf->setPaper('A4','landscape');

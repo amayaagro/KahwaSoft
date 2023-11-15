@@ -12,6 +12,7 @@
 
         $nombrecultivo = $cultivo['Cultivo'];
         $descripcion = $cultivo['Descripcion'];
+        $estado = $cultivo['Estado'];
     }
 
     if($_POST)
@@ -21,9 +22,9 @@
         $descripcion = (isset($_POST['descripcion'])?$_POST['descripcion']:"");
 
         $sentencia = $conexion->prepare("UPDATE cultivo SET 
-        Cultivo = :cultivo, 
-        Descripcion = :descripcion 
-        WHERE Id = :id");
+                                        Cultivo = :cultivo, 
+                                        Descripcion = :descripcion 
+                                        WHERE Id = :id");
         $sentencia->bindParam(":id",$txtId);         
         $sentencia->bindParam(":cultivo",$nombrecultivo);
         $sentencia->bindParam(":descripcion",$descripcion);
@@ -31,8 +32,8 @@
         $mensaje = "Registro actualizado";
         header("Location:index.php?mensaje=".$mensaje);
     }
-
 ?>
+<!-- Header -->
 <?php include("../../templates/header.php"); ?>
 
 <!-- Herramienta Accesibilidad -->
@@ -50,7 +51,7 @@
     <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Modificar Cultivo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Modificar Cultivo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

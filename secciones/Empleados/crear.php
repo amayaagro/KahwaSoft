@@ -12,7 +12,7 @@
         $arl = (isset($_POST['arl'])?$_POST['arl']:"");
         $estado = (isset($_POST['estado'])?$_POST['estado']:"1");
         $sentencia = $conexion->prepare("INSERT INTO `trabajadores` (`Id`, `Documento`, `Nombre`, `Telefono`, `FechaDeNacimiento`, `Eps`, `Arl`, `Estado`) VALUES 
-        (NULL, :documento, :nombrecompleto, :telefono, :fechadenacimiento, :eps, :arl, :estado);");
+        (NULL, :documento, :nombrecompleto, :telefono, :fechadenacimiento, :eps, :arl, :estado)");
         $sentencia->bindParam(":documento",$documento);
         $sentencia->bindParam(":nombrecompleto",$nombrecompleto);
         $sentencia->bindParam(":telefono",$telefono);
@@ -43,7 +43,7 @@
     <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Registrar Trabajador</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Registrar Trabajador</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

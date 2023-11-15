@@ -11,10 +11,9 @@
         $cantidadenbodega = (isset($_POST['cantidadenbodega'])?$_POST['cantidadenbodega']:"");
         $fechadecompra = (isset($_POST['fechadecompra'])?$_POST['fechadecompra']:"");
         $fechadevencimiento = (isset($_POST['fechadevencimiento'])?$_POST['fechadevencimiento']:"");
-
-        $sentencia = $conexion->prepare("INSERT INTO `inventario` (`Id`, `FechaInventario`, `NombreInsumo`, `IngredienteActivo`, `Unidad`, `CantidadEnBodega`, `FechaDeCompra`, `FechaDeVencimiento`)
-        VALUES (NULL, :fechadeinventario, :nombreinsumo, :ingredienteactivo, :unidad, :cantidadenbodega, :fechadecompra, :fechadevencimiento)");
-
+        $estado = (isset($_POST['estado'])?$_POST['estado']:"1");
+        $sentencia = $conexion->prepare("INSERT INTO `inventario` (`Id`, `FechaInventario`, `NombreInsumo`, `IngredienteActivo`, `Unidad`, `CantidadEnBodega`, `FechaDeCompra`, `FechaDeVencimiento` , `Estado`)
+        VALUES (NULL, :fechadeinventario, :nombreinsumo, :ingredienteactivo, :unidad, :cantidadenbodega, :fechadecompra, :fechadevencimiento, :estado)");
         $sentencia->bindParam(":fechadeinventario",$fechadeinventario);
         $sentencia->bindParam(":nombreinsumo",$nombreinsumo);
         $sentencia->bindParam(":ingredienteactivo",$ingredienteactivo);
@@ -22,6 +21,7 @@
         $sentencia->bindParam(":cantidadenbodega",$cantidadenbodega);
         $sentencia->bindParam(":fechadecompra",$fechadecompra);
         $sentencia->bindParam(":fechadevencimiento",$fechadevencimiento);
+        $sentencia->bindParam(":estado",$estado);
         $sentencia->execute();
         $mensaje="Registro creado";
         header("Location:index.php?mensaje=".$mensaje);
@@ -46,7 +46,7 @@
 <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Registrar Insumo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Registrar Insumo</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">

@@ -48,7 +48,7 @@
 <div class="card">
         <div class="content">
             <div class="title">
-            <h3 id="Titulo"><strong>Registro de Pago</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h3>
+            <h2 id="Titulo"><strong>Registro de Pago</strong><img src="../../Img/Logo.png" width="230" height="80" align="right"></h2>
             </div>
             <div class="card-body">
             <form action="" method="post" class="form" enctype="multipart/form-data">
